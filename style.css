@@ -1,0 +1,197 @@
+:root {
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --fg: #e5e5e5;
+  --muted: #737373;
+  --border: #2e2e2e;
+  --highlight: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: "Consolas", "Lucida Console", "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 20px 12px;
+  /* Лёгкий эффект старого ЭЛТ-монитора (едва заметные полосы) */
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.02) 50%,
+    transparent 50%
+  );
+  background-size: 100% 4px;
+}
+
+.window {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+/* Верхняя полоса в стиле окна редактора / ОС 00-х */
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  background: #161616;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.title-bar span.status {
+  color: var(--fg);
+}
+
+header {
+  padding: 20px 20px 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--highlight);
+  margin-bottom: 12px;
+}
+
+/* Мигающий курсор терминала */
+.cursor {
+  display: inline-block;
+  width: 9px;
+  height: 18px;
+  background: var(--highlight);
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Навигация в духе текстовых меню 00-х */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--highlight);
+  background: #1f1f1f;
+  outline: 1px solid var(--border);
+}
+
+nav a.active::before {
+  content: "> ";
+}
+
+/* Основная область с нумерацией блоков как в редакторе кода */
+main {
+  padding: 20px;
+  counter-reset: line;
+}
+
+article {
+  position: relative;
+  padding-left: 38px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--border);
+}
+
+article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+article::before {
+  counter-increment: line;
+  content: counter(line, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  user-select: none;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 17px;
+  color: var(--highlight);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 4px;
+}
+
+ul li::before {
+  content: "- ";
+  color: var(--muted);
+}
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+a:hover {
+  background: var(--highlight);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+/* Встроенный стандартный плеер в ч/б инверсии */
+audio {
+  width: 100%;
+  height: 32px;
+  margin-top: 8px;
+  filter: grayscale(100%) invert(92%) contrast(90%);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  background: #161616;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge {
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  color: var(--fg);
+}
