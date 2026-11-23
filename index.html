@@ -3,25 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>corner</title>
+        <title>pilmeha</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="layout">
-            <header id="sidebar"></header>
+            <header>
+                <h1>~/my_corner</h1>
+                <nav>
+                    <a href="#news">[новости]</a>
+                    <a href="#music">[музыка]</a>
+                    <a href="#games">[игры]</a>
+                    <a href="#movie">[фильмы]</a>
+                    <a href="#petproj">[пет проекты]</a>
+                    <a href="#books">[книги]</a>
+                    <a href="#food">[еда]</a>
+                    <a href="#about">[о себе]</a>
+                </nav>
+            </header>
 
-            <main>
-                <p><small> Новости </small></p>
-                <article>
-                    <small>22.11.2026 // #init</small>
-                    <h2>Запуск личного уголка</h2>
-                    <p>Собрал минималистичную страницу на чистом HTML и CSS.</p>
-                    <p>Буду складывать сюда заметки о разработке, музыку, мысли и прогресс по проектам, новости, игры в которые играю, рецензии на фильмы и все такое.</p>
-                </article>
-            </main>
+            <main id="content"></main>
         </div>
 
-        <footer id="footer"></footer>
-        <script src="layout.js"></script>
+        <footer>
+            <small>pilmeha // 2026</small>
+        </footer>
+
+        <script src="app.js"></script>
     </body>
 </html>
