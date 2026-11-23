@@ -9,6 +9,17 @@ const SECTION_NAMES = {
     about: "о себе",
 };
 
+const SECTION_DESCRIPTON = {
+    news: "Новости",
+    music: "Моя музыка",
+    games: "Игры в которые играю, отзывы на них",
+    movie: "Отзывы на фильмы, аниме, сериалы",
+    petproj: "О моих проектах",
+    books: "Читательский дневник",
+    food: "Рецепты, отзывы на еду",
+    about: "О себе",
+};
+
 let allPosts = [];
 
 fetch("posts.json")
@@ -21,6 +32,7 @@ fetch("posts.json")
 function render() {
     const section = location.hash.replace("#", "") || "news";
     const sectionTitle = SECTION_NAMES[section] || section;
+    const sectionDescription = SECTION_DESCRIPTON[section] || section;
 
     document.title = `pilmeha // ${sectionTitle}`;
 
@@ -32,7 +44,7 @@ function render() {
     const container = document.getElementById("content");
 
     if (filtered.length === 0) {
-        container.innerHTML = `<p><small>// ${sectionTitle}</small></p><p>Пока здесь пусто</p>`;
+        container.innerHTML = `<p><small>// ${sectionDescription}</small></p><p>Пока здесь пусто</p>`;
         return;
     }
 
@@ -56,7 +68,7 @@ function render() {
         `;
     }).join("");
 
-    container.innerHTML = `<p><small>// ${sectionTitle}</small></p>${postsHTML}`;
+    container.innerHTML = `<p><small>// ${sectionDescription}</small></p>${postsHTML}`;
 }
 
 window.addEventListener("hashchange", render);
