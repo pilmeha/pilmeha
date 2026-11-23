@@ -55,9 +55,9 @@ async function render() {
             ? post.text.map(p => `<p>${p}</p>`).join("") : `<p>${post.text}</p>`;
 
         const imageAlt = post.imageAlt ? post.imageAlt : "";
-        const imageHTML = post.image ? `<img src=${post.image}" loading="lazy" alt="${imageAlt}">` : "";
-        const audioHTML = post.audio ? `<audio controls src="${post.audio}"></audoi>` : "";
-        const linkHTML = post.link ? `<p><a href=${post.link}" target="_blank">[открыть ссылку ->]</a></p>` : "";
+        const imageHTML = post.image ? `<img src="${post.image}" loading="lazy" alt="${imageAlt}">` : "";
+        const audioHTML = post.audio ? `<audio controls src="${post.audio}"></audio>` : "";
+        const linkHTML = post.link ? `<p><a href="${post.link}" target="_blank">[открыть ссылку ->]</a></p>` : "";
 
         return `
             <article>
