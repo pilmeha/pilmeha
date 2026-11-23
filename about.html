@@ -7,37 +7,25 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        
-        <header>
-            <h1>~/my_corner</h1>
-            <nav>
-                <a href="index.html">[новости]</a>
-                <a href="music.html">[музыка]</a>
-                <a href="games.html">[игры]</a>
-                <a href="movie.html">[кино]</a>
-                <a href="petproj.html">[пет проекты]</a>
-                <a href="books.html">[книги]</a>
-                <a href="food.html">[еда]</a>
-                <a href="about.html" class="active">[о себе]</a>
-            </nav>
-        </header>
+        <div class="layout">
+            <header id="sidebar"></header>
+            
+            <main>
+                <small> Обо мне </small>
+                <article>
+                    <small>whoami</small>
+                    <h2>Коротко обо мне</h2>
+                    <p>Пишу код.</p>
+                    <ul>
+                        <li>GitHub: <a href="#">://github.com</a></li>
+                        <li>Telegram: <a href="#">@username</a></li>
+                    </ul>
+                </article>
+            </main>
+        </div>
 
-        <main>
-            <small> Обо мне </small>
-            <article>
-                <small>whoami</small>
-                <h2>Коротко обо мне</h2>
-                <p>Пишу код.</p>
-                <ul>
-                    <li>GitHub: <a href="#">://github.com</a></li>
-                    <li>Telegram: <a href="#">@username</a></li>
-                </ul>
-            </article>
-        </main>
-
-        <footer>
-            <small> pilmeha // 2026</small>
-        </footer>
+        <footer id="footer"></footer>
+        <script src="layout.js"></script>
 
     </body>
 </html>

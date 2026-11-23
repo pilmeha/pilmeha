@@ -8,37 +8,26 @@
     </head>
     <body>
         
-        <header>
-            <h1>~/my_corner</h1>
-            <nav>
-                <a href="index.html">[новости]</a>
-                <a href="music.html" class="active">[музыка]</a>
-                <a href="games.html">[игры]</a>
-                <a href="movie.html">[кино]</a>
-                <a href="petproj.html">[пет проекты]</a>
-                <a href="books.html">[книги]</a>
-                <a href="food.html">[еда]</a>
-                <a href="about.html">[о себе]</a>
-            </nav>
-        </header>
+        <div class="layout">
+            <header id="sidebar"></header>
 
-        <main>
-            <small> Моя музыка </small>
-            <article>
-                <small>22.11.2026 // #playlist</small>
-                <h2>На повторе</h2>
-                <ul>
-                    <li>Исполнитель — Название трека (2004)</li>
-                    <li>Исполнитель — Название трека (2007)</li>
-                </ul>
-                <!-- Если захочешь прикрепить свой mp3-файл из папки audio/ -->
-                <!-- <audio controls src="audio/track.mp3"></audio> -->
-            </article>
-        </main>
+            <main>
+                <small> Моя музыка </small>
+                <article>
+                    <small>22.11.2026 // #playlist</small>
+                    <h2>На повторе</h2>
+                    <ul>
+                        <li>Исполнитель — Название трека (2004)</li>
+                        <li>Исполнитель — Название трека (2007)</li>
+                    </ul>
+                    <!-- Если захочешь прикрепить свой mp3-файл из папки audio/ -->
+                    <!-- <audio controls src="audio/track.mp3"></audio> -->
+                </article>
+            </main>
+        </div>
 
-        <footer>
-            <small> pilmeha // 2026</small>
-        </footer>
+        <footer id="footer"></footer>
+        <script src="layout.js"></script>
 
     </body>
 </html>

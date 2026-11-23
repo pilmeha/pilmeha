@@ -4,15 +4,22 @@ body {
   font-family: monospace;
   font-size: 16px;
   line-height: 1.6;
-  max-width: 680px;
+  max-width: 860px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
+.layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
 header {
-  border-bottom: 1px solid #333;
-  padding-bottom: 16px;
-  margin-bottom: 32px;
+  width: 180px;
+  flex-shrink: 0;
+  border-right: 1px solid #333;
+  padding-right: 20px;
 }
 
 h1 {
@@ -21,16 +28,25 @@ h1 {
   margin: 0 0 12px 0;
 }
 
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 nav a {
   color: #888;
   text-decoration: none;
-  margin-right: 16px;
 }
 
 nav a:hover,
 nav a.active {
   color: #fff;
   text-decoration: underline;
+}
+
+main {
+  flex: 1;
 }
 
 article {
@@ -55,4 +71,25 @@ footer {
   border-top: 1px solid #333;
   padding-top: 16px;
   margin-top: 48px;
+}
+
+@media (max-width: 600px) {
+  .layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  header {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #333;
+    padding-right: 0;
+    padding-bottom: 16px;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
