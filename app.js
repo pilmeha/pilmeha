@@ -2,7 +2,7 @@ const SECTION_NAMES = {
     news: "новости",
     music: "музыка",
     games: "игры",
-    movie: "фильмы",
+    cinema: "фильмы",
     petproj: "пет проекты",
     books: "книги",
     food: "еда",
@@ -13,26 +13,20 @@ const SECTION_DESCRIPTON = {
     news: "Новости",
     music: "Моя музыка",
     games: "Игры в которые играю, отзывы на них",
-    movie: "Отзывы на фильмы, аниме, сериалы",
+    cinema: "Отзывы на фильмы, аниме, сериалы",
     petproj: "О моих проектах",
     books: "Читательский дневник",
     food: "Рецепты, отзывы на еду",
     about: "О себе",
 };
 
-let allPosts = [];
+const cache = {};
 
-fetch("posts.json")
-    .then(res=> res.json())
-    .then(data => {
-        allPosts = data;
-        render();
-    });
-
-function render() {
+async function render() {
     const section = location.hash.replace("#", "") || "news";
     const sectionTitle = SECTION_NAMES[section] || section;
     const sectionDescription = SECTION_DESCRIPTON[section] || section;
+    const container = document.getElementById("content");
 
     document.title = `pilmeha // ${sectionTitle}`;
 
@@ -40,19 +34,28 @@ function render() {
         link.classList.toggle("active", link.getAttribute("href") === `#${section}`);
     });
 
-    const filtered = allPosts.filter(post => post.section === section);
-    const container = document.getElementById("content");
+    if (!cache[section]) {
+        try {
+            const res = await fetch(`data/${section}.json`);
+            cache[section] = res.ok ? await res.json() : [];
+        } catch {
+            cache[section] = [];
+        }
+    }
 
-    if (filtered.length === 0) {
+    const posts = cache[section]
+
+    if (posts.length === 0) {
         container.innerHTML = `<p><small>// ${sectionDescription}</small></p><p>Пока здесь пусто</p>`;
         return;
     }
 
-    const postsHTML = filtered.map(post => {
+    const postsHTML = posts.map(post => {
         const paragraphs = Array.isArray(post.text)
             ? post.text.map(p => `<p>${p}</p>`).join("") : `<p>${post.text}</p>`;
 
-        const imageHTML = post.image ? `<img src=${post.image}" alt="">` : "";
+        const imageAlt = post.imageAlt ? post.imageAlt : "";
+        const imageHTML = post.image ? `<img src=${post.image}" loading="lazy" alt="${imageAlt}">` : "";
         const audioHTML = post.audio ? `<audio controls src="${post.audio}"></audoi>` : "";
         const linkHTML = post.link ? `<p><a href=${post.link}" target="_blank">[открыть ссылку ->]</a></p>` : "";
 
@@ -72,3 +75,4 @@ function render() {
 }
 
 window.addEventListener("hashchange", render);
+render();
