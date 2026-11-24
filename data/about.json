@@ -1,20 +1,28 @@
-[
+[    
     {
         "section": "about",
-        "imageAlt": "тестовая фотка",
-        "image": "img/about/result2.webp",
-        "date": "23.11.2026",
-        "tag": "#whoami",
-        "title": "pilmeha",
-        "text": "Мой личный уголок в сети без алгоритмов, рекламы и лишнего шума."
+        "date": "24.11.2026",
+        "tag": "#cvayz",
+        "title": "Контакты",
+        "link": [
+            { "label": "Telegram: @krankhell", "url": "https://t.me/krankhell" },
+            { "label": "vk: @chuvaknatolchke", "url": "https://vk.ru/chuvaknatolchke" },
+            { "label": "mail: garmayev.ayur@inbox.ru", "url": "mailto:garmayev.ayur@inbox.ru" },
+            { "label": "github: pilmeha", "url": "https://github.com/pilmeha" },
+            { "label": "discord: @fllnlv", "url": "https://discord.com/fllnlv" },
+            { "label": "youtube: Pillmeha", "url": "https://www.youtube.com/@Pillmeha" },
+            { "label": "myplaylistVK", "url": "https://vk.ru/music/playlist/818765919_3_1c8fedaa7b7af49466" },
+            { "label": "myplaylistTG", "url": "https://t.me/muza1234x" },
+            { "label": "myTGC", "url": "https://t.me/vasrair1234x" }
+        ]
     },
     {
         "section": "about",
-        "imageAlt": "тестовая фотка",
+        "imageAlt": "моя аватарка, на фоне экран смерти (синий), по котуру мои очертания и внутри обои Безмятежность из Windows",
         "image": "img/about/result2.webp",
         "date": "23.11.2026",
         "tag": "#whoami",
         "title": "pilmeha",
-        "text": "Мой личный уголок в сети без алгоритмов, рекламы и лишнего шума."
+        "text": "Мой личный уголок в сети."
     }
 ]

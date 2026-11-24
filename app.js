@@ -51,13 +51,22 @@ async function render() {
     }
 
     const postsHTML = posts.map(post => {
-        const paragraphs = Array.isArray(post.text)
-            ? post.text.map(p => `<p>${p}</p>`).join("") : `<p>${post.text}</p>`;
+        const paragraphs = post.text
+            ? (Array.isArray(post.text) ? post.text.map(p => `<p>${p}</p>`).join("") : `<p>${post.text}</p>`)
+            : "";
 
         const imageAlt = post.imageAlt ? post.imageAlt : "";
         const imageHTML = post.image ? `<img src="${post.image}" loading="lazy" alt="${imageAlt}">` : "";
         const audioHTML = post.audio ? `<audio controls src="${post.audio}"></audio>` : "";
-        const linkHTML = post.link ? `<p><a href="${post.link}" target="_blank">[открыть ссылку ->]</a></p>` : "";
+        
+        let linkHTML = "";
+        if (Array.isArray(post.link)) {
+            linkHTML = post.link
+                .map(item => `<p><a href="${item.url}" target="_blank">${item.label}</a></p>`)
+                .join("");
+        } else if (post.link) {
+            linkHTML = `<p><a href="${post.link}" target="_blank">[открыть ссылку ->]</a></p>`;
+        }
 
         return `
             <article>
